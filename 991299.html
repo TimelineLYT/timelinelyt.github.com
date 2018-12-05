@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+
+
+<HTML>
+
+
+<table width="100%">
+<td width="10%">
+</td>
+<td width="80%">
+<head>
+  <title> Лента времени </title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<div>
+<img src="logo.png" width="50%" height="50%">
+</div>
+</head>
+<body>
+<bgcolor=#ffffff>
+<meta charset="UTF-8">
+<font face="Arial">
+<div>
+<h3>Введите даты и название события <button onclick="showInstruction()" class="btn btn-md" id="button_?"><b>?</b></button></h3>
+ Начало периода:
+     <select id="day_begin">
+	   <option></option>
+  <option>01</option>
+  <option>02</option>
+  <option>03</option>
+  <option>04</option>
+  <option>05</option>
+  <option>06</option>
+  <option>07</option> 
+  <option>08</option> 
+  <option>09</option> 
+  <option>10</option> 
+  <option>11</option> 
+  <option>12</option> 
+  <option>13</option> 
+  <option>14</option> 
+  <option>15</option> 
+  <option>16</option> 
+  <option>17</option> 
+  <option>18</option> 
+  <option>19</option> 
+  <option>20</option> 
+  <option>21</option> 
+  <option>22</option> 
+  <option>23</option> 
+  <option>24</option> 
+  <option>25</option> 
+  <option>26</option> 
+  <option>27</option> 
+  <option>28</option> 
+  <option>29</option> 
+  <option>30</option> 
+  <option>31</option>
+</select>
+.
+ <select id="month_begin">
+   <option></option>
+  <option>01</option>
+  <option>02</option>
+  <option>03</option>
+  <option>04</option>
+  <option>05</option> 
+  <option>06</option> 
+  <option>07</option> 
+  <option>08</option> 
+  <option>09</option> 
+  <option>10</option> 
+  <option>11</option> 
+  <option>12</option>
+</select>
+.
+<input type="text" id="year_begin" size="4"  placeholder="1939">
+  <br><br>
+ 
+
+  Конец периода: &nbsp&nbsp
+ <select id="day_end">
+   <option></option>
+  <option>01</option>
+  <option>02</option>
+  <option>03</option>
+  <option>04</option>
+  <option>05</option>
+  <option>06</option>
+  <option>07</option> 
+  <option>08</option> 
+  <option>09</option> 
+  <option>10</option> 
+  <option>11</option> 
+  <option>12</option> 
+  <option>13</option> 
+  <option>14</option> 
+  <option>15</option> 
+  <option>16</option> 
+  <option>17</option> 
+  <option>18</option> 
+  <option>19</option> 
+  <option>20</option> 
+  <option>21</option> 
+  <option>22</option> 
+  <option>23</option> 
+  <option>24</option> 
+  <option>25</option> 
+  <option>26</option> 
+  <option>27</option> 
+  <option>28</option> 
+  <option>29</option> 
+  <option>30</option> 
+  <option>31</option>
+</select>
+.
+ <select id="month_end">
+   <option></option>
+  <option>01</option>
+  <option>02</option>
+  <option>03</option>
+  <option>04</option>
+  <option>05</option> 
+  <option>06</option> 
+  <option>07</option> 
+  <option>08</option> 
+  <option>09</option> 
+  <option>10</option> 
+  <option>11</option> 
+  <option>12</option>
+</select>
+.
+<input type="text" id="year_end" size="4"  placeholder="1945"><br><br>
+  Название события: <input type="text" id="eventt" size="30"><br><br>
+
+  <button onclick="myFunction()" class="btn btn-default btn-md" id="button_ok">OK</button>
+
+  <br>
+  <br>
+<div id="my-timeline"></div>
+<table id="tableExample" class="table table-hover"> 
+<thead> 
+ <th>Начало периода</th> 
+ <th>Конец периода</th> 
+ <th>Название события</th> 
+ <th></th> 
+</thead>
+
+
+<tbody class="event_table" id="tableBodyExample"> 
+</tbody> 
+ </table>
+  </div>
+
+  </font>
+</body>
+ </td>
+<td width="10%">
+</td>
+</table>
+<style>
+th {
+  font-size: 14px;
+  font-weight: normal;
+  color: #FFFFFF;
+  background: #3497b9;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  padding: 8px;
+}
+
+.btn-default {
+  background: #3497b9;
+  color: #FFFFFF;
+}
+
+div {
+}
+table {
+font-size: 14pt;
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+<script src="jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+
+        <script>
+function update_timeline() {
+document.getElementById("my-timeline").value="привет"
+
+}
+            $(document).ready(function() {
+                createStoryJS({
+                    type:       'timeline',
+                    width:      '80%',
+                    height:     '500',
+                    source:     'example.json',
+                    embed_id:   'my-timeline',
+                    lang:               'ru'
+                });
+            });
+// $.get( "/list" ).done( function( data ) {
+//console.debug("Recevied data from /server/list api:");
+//  console.debug(data);
+//  handle_answer(data);
+// });
+
+url = '/list'
+$.when( $.get( url )).done( function( data ) {
+  console.debug("Recevied data from /server/list api:");
+  console.debug(data);
+  handle_answer(data);
+ });
+
+function showInstruction() 
+{
+
+    alert("1) Введите дату(ы) и название(я) события. В графе начало и конец периода выберете день, месяц и впишите год. В графе «названия события» впишите название. \n2) Нажмите кнопку ОК.\n3) Далее обновите страницу браузера. Ваше событие появится на ленте времени внизу. Чтобы увеличить/уменьшить масштаб ленты нажмите +/-.\n4) На странице имеется таблица с возможностью удаления события. Если вам необходимо удалить какое-то событие, то нажмите кнопку «Удалить» напротив этого события. Чтобы оно удалилось из ленты времени, перейдите к пункту 3.");
+
+}
+
+function myFunction() {
+    var day_begin = document.getElementById("day_begin").value;
+	var month_begin = document.getElementById("month_begin").value;
+	var year_begin = document.getElementById("year_begin").value;
+    var day_end = document.getElementById("day_end").value;
+	var month_end = document.getElementById("month_end").value;
+	var year_end = document.getElementById("year_end").value;
+    var ev = document.getElementById("eventt").value;
+	var end;
+	var begin;
+submitOK = "true";
+if (year_begin == "")
+{
+  alert("Сначала заполните год начального события");
+  submitOK = "false";
+}
+else
+{
+
+if (day_end == "" && month_end == "" && year_end == "") {
+  end = "-";
+end_with_dots = "-";
+}
+else {
+	if (day_end == "" && month_end == "") {
+	end = year_end;
+end_with_dots = year_end;
+}	else {
+if (day_end == "")
+{
+  end = year_end + "," + month_end;
+end_with_dots = month_end + "." +year_end
+}
+else
+{
+    end = year_end + "," + month_end + "," + day_end;
+end_with_dots = day_end + "." + month_end + "." + day_end;
+}
+}
+}
+
+if (day_begin == "" && month_begin == "") {
+	begin = year_begin;
+begin_with_dots = year_begin;
+}	else {
+if (day_begin == "")
+{
+  begin = year_begin + "," + month_begin;
+begin_with_dots = month_begin + "." + year_begin;
+}
+else
+{
+    begin = year_begin + "," + month_begin + "," + day_begin;
+begin_with_dots = day_begin + "." + month_begin + "." + year_begin;
+
+}
+}
+    if (ev == "" || (begin == ".." && end == "-")) {
+        alert("Сначала заполните поля");
+        submitOK = "false";
+    }
+    
+    if (submitOK == "false") {
+       return false;
+    }
+}
+
+addToTable(begin_with_dots, end_with_dots, ev);
+sendToServer();
+}
+
+function addToTable(begin, end, event_name){  
+ var entry = [begin, end, event_name], 
+ tableContent = "<tr>"; 
+ 
+ for(var i = 0; i < 3; i++){ 
+ tableContent += "<td>" + entry[i] + "</td>"; 
+ }; 
+  tableContent+="<td><input type=\"button\" value=\"Удалить\" onclick=\"deleteRow(this)\"></td>"
+ tableContent += "</tr>"; 
+  
+ tableBodyExample.innerHTML += tableContent; 
+ }
+
+function sendToServer() {
+var el = $(document);
+console.debug("This document:");
+console.debug(el);
+// Получаем селекторы на наши поля, где мы будем забивать данные
+var _month_begin = el.find("#month_begin");
+var _day_begin = el.find("#day_begin");
+var _year_begin = el.find("#year_begin");
+var _day_end = el.find("#day_end");
+var _month_end = el.find("#month_end");
+var _year_end = el.find("#year_end");
+var _button_ok =el.find("#button_ok");
+var _event_name =el.find("#eventt");
+
+  var end;
+  var begin;
+
+if (_day_end.val() == "" && _month_end.val() == "" && _year_end.val() == "") {
+  end = "-";
+}
+else {
+  if (_day_end.val() == "" && _month_end.val() == "") {
+  end = _year_end.val();
+} else {
+if (_day_end.val() == "")
+{
+  end = _year_end.val() + "," + _month_end.val();
+}
+else
+{
+    end = _year_end.val() + "," + _month_end.val() + "," + _day_end.val();
+}
+}
+}
+
+if (_day_begin.val() == "" && _month_begin.val() == "") {
+  begin = _year_begin.val();
+} else {
+if (_day_begin.val() == "")
+{
+  begin = _year_begin.val() + "," + _month_begin.val();
+}
+else
+{
+    begin = _year_begin.val() + "," + _month_begin.val() + "," + _day_begin.val();
+}
+}
+var url
+if (end=="-")
+    url='/add?startDate='+begin+'&headline='+_event_name.val()
+else
+    url='/add?startDate='+begin+'&endDate='+end+'&headline='+_event_name.val()
+
+ console.debug("Url for user add");
+ console.debug(url);
+$.get( url )
+update_timeline()
+
+};
+
+function deleteRow(r)
+ {
+
+ var i=r.parentNode.parentNode.rowIndex;
+  var rows = $('tr', $("#tableExample"));
+  str = rows.eq(i).html();
+  str = str.substr(4, str.length - 4);
+  index = str.indexOf("<");
+  begin = str.substr(0, index);
+  str = str.substr(index + 9, str.length - begin.length - 9);
+  index = str.indexOf("<");
+  end = str.substr(0, index);
+  str = str.substr(index + 9, str.length - end.length - 9);
+  index = str.indexOf("<");
+  ev = str.substr(0, index);
+  index = begin.search(".");
+  begin_for_server = "";
+  if(index==-1)
+  begin_for_server = begin;
+  
+  else
+  {
+  index1 = begin.indexOf(".");
+  index2 = begin.lastIndexOf(".");
+  if(index1 == index2)
+  {
+  month_begin = begin.substr(0,index1);
+  year_begin = begin.substr(3,begin.length - index1 - 1);
+  begin_for_server = year_begin + "," + month_begin;
+  }
+  else
+  {
+  day_begin = begin.substr(0,index1);
+  month_begin = begin.substr(3,2);
+  year_begin = begin.substr(6,begin.length - 6);
+  begin_for_server = year_begin + "," + month_begin + "," + day_begin;
+  }
+  }
+    end_for_server = "";
+  if(index==-1)
+  end_for_server = end;
+  
+  else
+  {
+  index1 = end.indexOf(".");
+  index2 = end.lastIndexOf(".");
+  if(index1 == index2)
+  {
+  month_end = end.substr(0,index1);
+  year_end = end.substr(3,end.length - index1 - 1);
+  end_for_server = year_end + "," + month_end;
+  }
+  else
+  {
+  day_end = end.substr(0,index1);
+  month_end = end.substr(3,2);
+  year_end = end.substr(6,end.length - 6);
+  end_for_server = year_end + "," + month_end + "," + day_end;
+  }
+  }
+ document.getElementById('tableExample').deleteRow(i);
+ var url
+if (end=="-")
+    url='/remove?startDate='+begin_for_server+'&headline='+ev;
+else
+    url='/remove?startDate='+begin_for_server+'&endDate='+end_for_server+'&headline='+ev;
+	$.get( url );
+ console.debug(url);
+
+
+ }
+
+
+var handle_answer = function (data) {
+ var lines = data.split("\n"); 
+JSON.parse(data).timeline.date.forEach(function(entry) {
+  if ( entry ) {
+
+startDate = entry.startDate;
+if (entry.endDate !== undefined)
+    endDate = entry.endDate;
+  index = startDate.search(",");
+  begin = "";
+if(index==-1)
+  begin = startDate;
+  
+  else
+  {
+  index1 = startDate.indexOf(",");
+  index2 = startDate.lastIndexOf(",");
+  if(index1 == index2)
+  {
+  year_begin = startDate.substr(0,index1);
+  month_begin = startDate.substr(index1+1,startDate.length - index1 - 1);
+  begin = month_begin + "." + year_begin;
+  }
+  else
+  {
+  year_begin = startDate.substr(0,index1);
+  month_begin = startDate.substr(index1 + 1,2);
+  day_begin = startDate.substr(index1 + 1 + 2 + 1,2);
+  begin =  day_begin + "." + month_begin + "." + year_begin;
+  }
+  }
+
+if (entry.endDate !== undefined)
+{
+end = "";
+  if(index==-1)
+  end = endDate;
+  
+  else
+  {
+  index1 = endDate.indexOf(",");
+  index2 = endDate.lastIndexOf(",");
+  if(index1 == index2)
+  {
+  year_end = endDate.substr(0,index1);
+  month_end = endDate.substr(index1 + 1, endDate.length - index1 - 1);
+  end = month_end + "." + year_end;
+  }
+  else
+  {
+  year_end = endDate.substr(0,index1);
+  month_end = endDate.substr(index1 + 1,2);
+  day_end = endDate.substr(index1 + 1 + 2 + 1,2);
+  end = day_end + "." + month_end + "." + year_end;
+  }
+  }
+}
+
+if (entry.endDate === undefined)
+addToTable(begin, "-", entry.headline);
+else
+addToTable(begin, end, entry.headline);
+  }
+ });
+}
+</script>
+
+</HTML>
